@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import * as BiIcons from 'react-icons/bi'
+import * as FcIcons from 'react-icons/fc'
+import Logo from './assets/imgs/logo.png'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="background-img">
+        <div className="background-blackLayer">
+          <div className="header">
+            <img src={Logo} alt="alce dev logo" className="logo" />
+            
+            <div className="searchBar">
+              <BiIcons.BiSearch size="30px" style={{width:"10%"}}/>
+              <input></input> 
+            </div>
+
+            <FcIcons.FcAbout size="35px" style={{marginTop:"15px"}}/>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
