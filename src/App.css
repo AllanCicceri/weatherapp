@@ -21,12 +21,17 @@
 }
 
 .header{
-  padding-top: 100px;
-  display: flex;
-  justify-content: space-around;
+  padding-top: 50px;
+  text-align: center;
 }
 .logo{
   width: 130px;
+}
+
+.searchContainer{
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
 }
 
 .searchBar{

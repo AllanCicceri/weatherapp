@@ -1,0 +1,38 @@
+.main{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.upperInfo{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.bootomInfo{
+    display: flex;
+}
+.degrees{
+    font-size: 100px;
+    font-weight: bold;
+}
+.cityTime{
+    display: flex;
+    flex-direction: column;
+}
+.city{
+    font-size: 60px;
+}
+
+.city span{
+    font-size: 15px;
+}
+
+.daytime,.humidity,.pressure,.speed{
+    margin-left: 50px;
+}
+.degrees,.cityTime{
+    margin-right: 30px;
+}
