@@ -21,6 +21,8 @@ function App() {
           </div>
 
           <Main />
+
+          <footer>Powered by Open Weather API</footer>
         </div>
       </div>
     </div>
