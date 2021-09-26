@@ -3,8 +3,32 @@ import React from 'react'
 import * as TiIcons from 'react-icons/ti'
 import * as GiIcons from 'react-icons/gi'
 import * as WiIcons from 'react-icons/wi'
+import {getWeather} from '../Api/Api'
+import { useState } from 'react'
 
-export default () => {
+export default ({id}) => {
+    const [city, setCity] = useState(null)
+
+    if(id !== null){
+        const city = getWeather(id)
+        console.log('city', city)
+    }
+    //refazer
+    // const getCityInfo = async (cityId) => {
+    //     const objCity = await getWeather(cityId)
+    //     return objCity
+    // }
+
+    // if(id !== null){
+    //     const setCityInfo = async () => {
+    //         const obj = await getCityInfo(id)
+    //         setCity(obj)
+    //         console.log('ib', obj.name)
+    //     }
+
+    //     setCityInfo()
+    // }
+
     return (
         <div className="main">
             <div className="upperInfo">

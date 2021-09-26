@@ -1,0 +1,36 @@
+
+.searchContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+  }
+  
+  .searchBar{
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    border: solid 2px silver;
+    padding: 8px;
+    margin-top: 15px;
+    background-color: transparent;
+    color: silver;
+    display: flex;
+  }
+  
+  .searchBar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: silver;
+    font-size: 1.3em;
+  }
+
+ 
+  /* Responsividade */
+  @media (max-width: 600px){
+      .searchContainer{
+          margin: 30px 10px;
+      }
+  }

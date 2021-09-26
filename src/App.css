@@ -7,7 +7,8 @@
 }
 
 .background-img{
-  height: 100vh;
+  height: inherit;
+  width: inherit;
   background-image: url('./assets/imgs/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -58,8 +59,15 @@
 footer{
   width: 100%;
   text-align: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   padding-bottom: 15px;
   color: #FFF;
+}
+
+@media (max-width: 600px){
+  footer{
+      font-size: 10px;
+      padding-bottom: 5px;
+  }
 }
