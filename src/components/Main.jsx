@@ -13,22 +13,7 @@ export default ({id}) => {
         const city = getWeather(id)
         console.log('city', city)
     }
-    //refazer
-    // const getCityInfo = async (cityId) => {
-    //     const objCity = await getWeather(cityId)
-    //     return objCity
-    // }
-
-    // if(id !== null){
-    //     const setCityInfo = async () => {
-    //         const obj = await getCityInfo(id)
-    //         setCity(obj)
-    //         console.log('ib', obj.name)
-    //     }
-
-    //     setCityInfo()
-    // }
-
+   
     return (
         <div className="main">
             <div className="upperInfo">

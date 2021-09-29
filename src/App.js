@@ -7,10 +7,6 @@ import { useState } from 'react';
 function App() {
   const [cityId, setCityId] = useState(null)
   
-  
-
-  // (cityId !== null && getCityInfo())
-
   return (
     
     <div className="App">
@@ -20,8 +16,8 @@ function App() {
             <img src={Logo} alt="alce dev logo" className="logo" />
           </header>
             
-          <Input setId={setCityId}/>
-          
+          <Input getCityId={id  => { console.log('chegou id', id)}}/>
+
           <Main id={cityId}/>
 
           <footer>Powered by Open Weather API</footer>

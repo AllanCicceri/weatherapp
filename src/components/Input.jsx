@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import * as BiIcons from 'react-icons/bi'
 import cities from '../Api/cities.json'
 
-export default ({id, setId}) => {
+export default ({getCityId}) => {
     const [cityInput, setCityInput] = useState('')
     const [citiesList, setCitiesList] = useState(null)
 
@@ -15,43 +15,48 @@ export default ({id, setId}) => {
       const tenFirstResults = (results.length > 10) ? results.slice(0, 10) : results
 
       setCitiesList(tenFirstResults)
+
+      citiesList!== null && suggestCities(e)
     }
 
 
-    const getCityId = e => {
-      if(e.keyCode == 13){
-        const Value = document.querySelector('#inputCitySelector').value;
+    const suggestCities = e => {
+      const val = e.target.value
+      if(!val) return
 
-        if(!Value) return;
+      const sugestionList = document.createElement('div')
+      sugestionList.setAttribute('id', 'sugestionList')
+      sugestionList.setAttribute('class', 'autocomplete-items')
 
-        // const myText = document.querySelector('option[value=' + Value + ']');
-        const myText = document.querySelector(`option[value='${Value}']`)
-        console.log(myText)
+      e.target.parentNode.appendChild(sugestionList)
 
-      }
+      citiesList.forEach((item, i) => {
+        const sugestionItem = document.createElement('div')
+        sugestionItem.innerHTML = `${item.name}, ${item.country}`
+        sugestionItem.onclick = () =>  {
+          getCityId(item.id)
+          closeSugestionList(e)
+        }
+        
+        sugestionList.appendChild(sugestionItem)
+      })
     }
 
+    const closeSugestionList = e => {
+      const elements = document.getElementById("searchBar").querySelectorAll(".autocomplete-items")
+      
+      elements.forEach((item,i) => {
+        item.parentNode.removeChild(item)
+      })
 
-    function renderCities(){
-      return(
-              <datalist id="cities" className="citiesDataList">
-                {citiesList.map((item, key) => (
-                  <option className="citiesOptionItem" key={key} value={item.name}  myprop={item.id} >
-                    {`${item.name}, ${item.country}`}</option>
-                ))
-                }
-              </datalist>
-      )
     }
-
     
     return (
-        <div className="searchContainer">
-            <div className="searchBar">
+        <form autoComplete="off" className="searchContainer">
+            <div className="searchBar" id="searchBar">
               <BiIcons.BiSearch size="30px" style={{width:"10%"}}/>
-              <input id="inputCitySelector" list="cities" value={cityInput} onKeyUp={getCityId} onChange={handleCities}></input> 
+              <input id="inputCitySelector"  value={cityInput} onChange={handleCities}></input> 
             </div>
-          {citiesList !== null && renderCities()}
-        </div>
+        </form>
     )
 }
