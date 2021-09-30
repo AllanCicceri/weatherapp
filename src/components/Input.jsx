@@ -1,48 +1,57 @@
 import './Input.css'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as BiIcons from 'react-icons/bi'
 import cities from '../Api/cities.json'
 
 export default ({getCityId}) => {
     const [cityInput, setCityInput] = useState('')
-    const [citiesList, setCitiesList] = useState(null)
+    const [citiesList, setCitiesList] = useState([])
+    const inputElement = useRef(null)
 
-    const handleCities = e => {
-      setCityInput(e.target.value)
+    useEffect(() => {
+      !!citiesList.length && handleCities()
+    }, [citiesList])
 
-      const results = cities.filter(s => s.name.indexOf(cityInput) !== -1)
-      
-      const tenFirstResults = (results.length > 10) ? results.slice(0, 10) : results
 
-      setCitiesList(tenFirstResults)
+    const handleCities = () => {  
+      console.log('oi')
+      const results = [] 
+      let count = 0
 
-      citiesList!== null && suggestCities(e)
+      Array.from(cities).forEach(item => {
+        if(count < 20)
+          if(item.name.includes(cityInput)){
+            results.push(item)
+            count++
+          }
+      })
+
+      console.log(results)
+      setCitiesList(results)
+      citiesList!== null && suggestCities()
     }
 
 
-    const suggestCities = e => {
-      const val = e.target.value
-      if(!val) return
-
+    const suggestCities = () => {
       const sugestionList = document.createElement('div')
       sugestionList.setAttribute('id', 'sugestionList')
       sugestionList.setAttribute('class', 'autocomplete-items')
 
-      e.target.parentNode.appendChild(sugestionList)
-
+      inputElement.current.parentNode.appendChild(sugestionList)
+      
       citiesList.forEach((item, i) => {
         const sugestionItem = document.createElement('div')
         sugestionItem.innerHTML = `${item.name}, ${item.country}`
         sugestionItem.onclick = () =>  {
           getCityId(item.id)
-          closeSugestionList(e)
+          closeSugestionList()
         }
         
         sugestionList.appendChild(sugestionItem)
       })
     }
 
-    const closeSugestionList = e => {
+    const closeSugestionList = () => {
       const elements = document.getElementById("searchBar").querySelectorAll(".autocomplete-items")
       
       elements.forEach((item,i) => {
@@ -55,7 +64,7 @@ export default ({getCityId}) => {
         <form autoComplete="off" className="searchContainer">
             <div className="searchBar" id="searchBar">
               <BiIcons.BiSearch size="30px" style={{width:"10%"}}/>
-              <input id="inputCitySelector"  value={cityInput} onChange={handleCities}></input> 
+              <input ref={inputElement} id="inputCitySelector"  value={cityInput} onChange={e => setCityInput(e.target.value)}></input> 
             </div>
         </form>
     )
