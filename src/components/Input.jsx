@@ -25,6 +25,9 @@ export default ({getCityId}) => {
 
     const suggestCities = (citiesList) => {
       closeSugestionList()
+
+      if(!inputElement.current.value)
+        return
       
       const sugestionList = document.createElement('div')
       sugestionList.setAttribute('id', 'sugestionList')

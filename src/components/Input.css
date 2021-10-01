@@ -9,9 +9,9 @@
   .searchBar{
     position: relative;
     display: inline-block;
-    width: 400px;
+    width: 500px;
     height: 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: solid 2px silver;
     padding: 8px;
     margin-top: 15px;
