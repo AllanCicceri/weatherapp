@@ -43,6 +43,7 @@ export default ({getCityId}) => {
 
         sugestionItem.onclick = () =>  {
           getCityId(item.id)
+          inputElement.current.value = item.name
           closeSugestionList()
         }
         
