@@ -1,4 +1,4 @@
-const API_KEY = "65f898b5fd686db34dcb766049ab7a84"
+const API_KEY = process.env.REACT_APP_API_KEY
 let endPoint = "http://api.openweathermap.org/data/2.5/forecast?"
 
 

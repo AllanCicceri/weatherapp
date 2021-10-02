@@ -12,9 +12,7 @@ String.prototype.Right = (myString, position) => {
 
 const Util = {
     capitalizeFirstLetter(string){
-        const value = `${string.charAt(0).toUpperCase()}${string.slice(1)}`
-        console.log(value)
-        return value
+        return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
 
     }
 

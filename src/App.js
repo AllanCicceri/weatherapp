@@ -3,10 +3,16 @@ import Logo from './assets/imgs/logo.png'
 import Main from './components/Main';
 import Input from './components/Input';
 import { useState } from 'react';
+import {getWeather} from './Api/Api'
 
 function App() {
-  const [cityId, setCityId] = useState(null)
-  
+  const [city, setCity] = useState(null)
+
+  const getCityWeather = async id => {
+    const selectedCity = await getWeather(id)
+    setCity({...selectedCity})
+  }
+
   return (
     
     <div className="App">
@@ -16,9 +22,9 @@ function App() {
             <img src={Logo} alt="alce dev logo" className="logo" />
           </header>
             
-          <Input getCityId={id  => { console.log('chegou id', id)}}/>
+          <Input getCityId={id  => { getCityWeather(id) }}/>
 
-          <Main id={cityId}/>
+          <Main city={city}/>
 
           <footer>Powered by Open Weather API</footer>
         </div>

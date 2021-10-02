@@ -3,23 +3,15 @@ import React from 'react'
 import * as TiIcons from 'react-icons/ti'
 import * as GiIcons from 'react-icons/gi'
 import * as WiIcons from 'react-icons/wi'
-import {getWeather} from '../Api/Api'
-import { useState } from 'react'
 
-export default ({id}) => {
-    const [city, setCity] = useState(null)
+export default ({city}) => {
 
-    if(id !== null){
-        const city = getWeather(id)
-        console.log('city', city)
-    }
-   
     return (
         <div className="main">
             <div className="upperInfo">
                 <div className="degrees">10°c</div>
                 <div className="cityTime">
-                    <div className="city">Lajeado <span>,BR</span> </div>
+                    <div className="city">{(city == null)?'NoCity':city.city.name} <span>,BR</span> </div>
                     <div className="time">15:00 - Seg, 23 Set 2021 - Clouds</div>
                 </div>
                 <TiIcons.TiWeatherPartlySunny size="80px"/>
