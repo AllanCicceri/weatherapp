@@ -9,3 +9,15 @@ String.prototype.Right = (myString, position) => {
     const RightOfTheString = myString.slice(position, myString.length)
     return RightOfTheString
 }
+
+const Util = {
+    capitalizeFirstLetter(string){
+        const value = `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+        console.log(value)
+        return value
+
+    }
+
+}
+
+export default Util

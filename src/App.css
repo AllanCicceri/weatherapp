@@ -2,19 +2,28 @@
   margin: 0;
 }
 
+html{
+  background: url('./assets/imgs/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
 .App{
   height: 100vh;
   width: 100vw;
 }
 
-.background-img{
+/* .background-img{
   height: 100%;
   width: auto;
   background-image: url('./assets/imgs/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-}
+} */
 
 .background-blackLayer{
   height: 100%;

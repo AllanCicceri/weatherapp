@@ -15,7 +15,7 @@
     display: flex;
 }
 .degrees{
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: bold;
 }
 .cityTime{
@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 .city{
-    font-size: 9vw;
+    font-size: 10vw;
 }
 
 .city span{

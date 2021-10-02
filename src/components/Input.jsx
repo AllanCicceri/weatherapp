@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import * as BiIcons from 'react-icons/bi'
 import cities from '../Api/cities.json'
 import '../Api/Util'
+import Util from '../Api/Util'
 
 export default ({getCityId}) => {
     const inputElement = useRef(null)
@@ -11,9 +12,11 @@ export default ({getCityId}) => {
       
       const results = [] 
       let count = 0
+      
       Array.from(cities).forEach(item => {
         if(count < 10)
-          if(item.name.includes(inputElement.current.value)){
+           
+          if(item.name.toUpperCase().includes(inputElement.current.value.toUpperCase())){
             results.push(item)
             count++
           }
@@ -38,7 +41,7 @@ export default ({getCityId}) => {
       citiesList.forEach((item) => {
         const sugestionItem = document.createElement('div')
 
-        const innerHtml = stronglifySuggestion(item)
+        const innerHtml = strongfySuggestion(item)
         sugestionItem.innerHTML = innerHtml
 
         sugestionItem.onclick = () =>  {
@@ -59,15 +62,25 @@ export default ({getCityId}) => {
       })
 
     }
+    
+    const strongfySuggestion = (item) => {
+      const inputValue = inputElement.current.value
 
-    const stronglifySuggestion = (item) => {
-      const startPos = item.name.indexOf(inputElement.current.value)
-      const endPos = inputElement.current.value.length
+      const startPos = item.name.toUpperCase().indexOf(inputValue.toUpperCase())
+      const endPos = startPos + inputValue.length
+      
       const leftPiece = item.name.Left(item.name, startPos)
-      const middlePiece = inputElement.current.value
-      const rightPiece = item.name.Right(item.name, endPos)
+      
+      let middlePiece = '' 
+      if(leftPiece.length === 0 || item.name.charAt(startPos -1).trim().length === 0)
+        middlePiece = Util.capitalizeFirstLetter(inputValue)
+      else
+        middlePiece = inputValue
+      
 
-        const newInnerHtml = `${leftPiece}<strong>${middlePiece}</strong>${rightPiece}, ${item.country}`
+      const rightPiece = item.name.Right(item.name, endPos)
+      
+      const newInnerHtml = `${leftPiece}<strong>${middlePiece}</strong>${rightPiece}, ${item.country}`
       return newInnerHtml
     }
     
