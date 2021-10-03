@@ -2,7 +2,7 @@ import './App.css';
 import Logo from './assets/imgs/logo.png'
 import Main from './components/Main';
 import Input from './components/Input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {getWeather} from './Api/Api'
 
 function App() {
