@@ -16,19 +16,15 @@ function App() {
   return (
     
     <div className="App">
-      <div className="background-img">
-        <div className="background-blackLayer">
           <header className="header">
             <img src={Logo} alt="alce dev logo" className="logo" />
           </header>
             
           <Input getCityId={id  => { getCityWeather(id) }}/>
 
-          <Main city={city}/>
+          <Main selectedCity={city}/>
 
           <footer>Powered by Open Weather API</footer>
-        </div>
-      </div>
     </div>
   );
 }
