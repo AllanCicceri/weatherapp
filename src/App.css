@@ -13,22 +13,35 @@ html{
 
 .App{
   height: 100vh;
-  width: 100vw;
-  background: radial-gradient(black, rgba(20,20,20, .6) 40%, rgba(30,30,30,.5), rgba(60,60,60, .2),  rgba(6,60,60, .1))
+  background: radial-gradient(black, rgba(20,20,20, .6) 40%, rgba(30,30,30,.5), rgba(60,60,60, .2),  rgba(6,60,60, .1));
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 1fr 10%;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer";
 }
 
+
 .header{
-  padding-top: 50px;
+  grid-area: "header";
   text-align: center;
+  margin-top: 20px;
 }
+
 .logo{
   width: 130px;
+}
+
+.main{
+  grid-area: "main";
 }
 
 .searchContainer{
   display: flex;
   justify-content: center;
-  margin: 100px 0;
 }
 
 .searchBar{
@@ -36,8 +49,6 @@ html{
   height: 30px;
   border-radius: 20px;
   border: solid 2px silver;
-  padding: 8px;
-  margin-top: 15px;
   background-color: transparent;
   color: silver;
   display: flex;
@@ -53,11 +64,9 @@ html{
 }
 
 footer{
-  width: 100%;
+  grid-area: "footer";
   text-align: center;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 15px;
+  margin-top: 2%;
   color: #FFF;
 }
 

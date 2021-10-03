@@ -43,7 +43,7 @@ export default ({getCityId}) => {
 
         const innerHtml = strongfySuggestion(item)
         sugestionItem.innerHTML = innerHtml
-
+        
         sugestionItem.onclick = () =>  {
           getCityId(item.id)
           inputElement.current.value = item.name

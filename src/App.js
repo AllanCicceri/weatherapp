@@ -19,10 +19,10 @@ function App() {
           <header className="header">
             <img src={Logo} alt="alce dev logo" className="logo" />
           </header>
-            
-          <Input getCityId={id  => { getCityWeather(id) }}/>
-
-          <Main selectedCity={city}/>
+          <main className="main">
+            <Input getCityId={id  => { getCityWeather(id) }}/>
+            <Main selectedCity={city}/>
+          </main>
 
           <footer>Powered by Open Weather API</footer>
     </div>
