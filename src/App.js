@@ -4,6 +4,7 @@ import Main from './components/Main';
 import Input from './components/Input';
 import { useState, useEffect } from 'react';
 import {getWeather} from './Api/Api'
+import {StyledBackground} from './components/styles/Background.styled'
 
 function App() {
   const [city, setCity] = useState(null)
@@ -17,12 +18,38 @@ function App() {
     setCity({...selectedCity})
   }
 
-  // if(city !== null){ todo: alterar background img
-  //   const cityMain = city.list[0].weather[0].id
-  // }
+  let cityMainId = ''
+  if(city !== null){ 
+    cityMainId = city.list[0].weather[0].id.toString().charAt(0)
+    
+    switch (cityMainId) {
+      case '2':
+        cityMainId = 'storm'
+        break;
+    
+      case '3':
+        cityMainId = 'drizzle'
+        break;
+  
+      case '5':
+        cityMainId = 'rain'
+        break;
+    
+      case '8':
+        cityMainId = 'clouds'
+        break;
+
+      default:
+        cityMainId = 'initial'
+        break;
+    }
+  }
+
+  let imgUrl = process.env.PUBLIC_URL
+  imgUrl += (cityMainId !== '')?'/'+cityMainId+'.webp':'/initial.webp'
 
   return (
-    <div className="styled">
+    <StyledBackground imgUrl={imgUrl}>
       <div className="App">
             <header className="header">
               <img src={Logo} alt="alce dev logo" className="logo" />
@@ -35,7 +62,7 @@ function App() {
             <footer>Powered by Open Weather API</footer>
       </div>
 
-    </div>
+    </StyledBackground>
   );
 }
 
