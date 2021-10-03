@@ -39,6 +39,7 @@ export default ({getCityId}) => {
       
       citiesList.forEach((item) => {
         const sugestionItem = document.createElement('div')
+        sugestionItem.setAttribute('class', 'suggestion-item')
 
         const innerHtml = strongfySuggestion(item)
         sugestionItem.innerHTML = innerHtml

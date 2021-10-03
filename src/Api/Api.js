@@ -1,5 +1,5 @@
 const API_KEY = process.env.REACT_APP_API_KEY
-let endPoint = "http://api.openweathermap.org/data/2.5/forecast?"
+let endPoint = "https://api.openweathermap.org/data/2.5/forecast?"
 
 
 export const getWeather = async id => {
