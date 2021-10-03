@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .upperInfo{
@@ -25,6 +26,14 @@
 }
 .city{
     font-size: 10vw;
+}
+
+.city.medium{
+    font-size: 6vw;
+}
+
+.city.large{
+    font-size: 4vw;
 }
 
 .city span{

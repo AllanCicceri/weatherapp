@@ -46,7 +46,7 @@ export default ({selectedCity}) => {
             <div className="upperInfo">
                 <div className="degrees">{city.degress}°C</div>
                 <div className="cityTime">
-                    <div className="city">{city.name} <span>,{city.country}</span> </div>
+                    <div className={`city ${(city.name.length > 6)?(city.name.length > 12?'large':'medium'):''}`}> {city.name} <span>,{city.country}</span> </div>
                     <div className="time">{city.completeDate} - {city.main}</div>
                 </div>
                 <img src={`http://openweathermap.org/img/w/${city.icon}.png`} alt="weather icon today" style={{width:"60px", height:"60px"}}/>
