@@ -1,5 +1,5 @@
 import './Input.css'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useRef} from 'react'
 import * as BiIcons from 'react-icons/bi'
 import cities from '../Api/cities.json'
 import '../Api/Util'
@@ -68,16 +68,16 @@ export default ({getCityId}) => {
       const startPos = item.name.toUpperCase().indexOf(inputValue.toUpperCase())
       const endPos = startPos + inputValue.length
       
-      const leftPiece = item.name.Left(item.name, startPos)
+      const leftPiece = item.name.Left(startPos)
       
       let middlePiece = '' 
       if(leftPiece.length === 0 || item.name.charAt(startPos -1).trim().length === 0)
-        middlePiece = inputValue.capitalizeFirstLetter(inputValue)
+        middlePiece = inputValue.capitalizeFirstLetter()
       else
         middlePiece = inputValue
       
 
-      const rightPiece = item.name.Right(item.name, endPos)
+      const rightPiece = item.name.Right(endPos)
       
       const newInnerHtml = `${leftPiece}<strong>${middlePiece}</strong>${rightPiece}, ${item.country}`
       return newInnerHtml
