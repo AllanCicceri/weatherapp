@@ -10,12 +10,6 @@ String.prototype.Right = (myString, position) => {
     return RightOfTheString
 }
 
-const Util = {
-    capitalizeFirstLetter(string){
-        return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
-
-    }
-
+String.prototype.capitalizeFirstLetter = string => {
+    return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
 }
-
-export default Util

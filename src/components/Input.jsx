@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import * as BiIcons from 'react-icons/bi'
 import cities from '../Api/cities.json'
 import '../Api/Util'
-import Util from '../Api/Util'
 
 export default ({getCityId}) => {
     const inputElement = useRef(null)
@@ -73,7 +72,7 @@ export default ({getCityId}) => {
       
       let middlePiece = '' 
       if(leftPiece.length === 0 || item.name.charAt(startPos -1).trim().length === 0)
-        middlePiece = Util.capitalizeFirstLetter(inputValue)
+        middlePiece = inputValue.capitalizeFirstLetter(inputValue)
       else
         middlePiece = inputValue
       

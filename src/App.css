@@ -70,9 +70,9 @@ footer{
   color: #FFF;
 }
 
-@media (max-width: 600px){
+/* @media (max-width: 600px){
   footer{
       font-size: 10px;
       padding-bottom: 5px;
   }
-}
+} */

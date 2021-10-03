@@ -13,6 +13,7 @@
 
 .bootomInfo{
     display: flex;
+    align-items: center;
 }
 .degrees{
     font-size: 4vw;
@@ -39,6 +40,11 @@
 .degrees,.cityTime{
     margin-right: 30px;
 }
+
+.time{
+    margin-top: 15px;
+}
+
 
 @media (max-width: 600px){
     .main{
