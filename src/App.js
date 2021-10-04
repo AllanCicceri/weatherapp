@@ -24,13 +24,7 @@ function App() {
     
     switch (cityMainId) {
       case '2':
-        cityMainId = 'storm'
-        break;
-    
       case '3':
-        cityMainId = 'drizzle'
-        break;
-  
       case '5':
         cityMainId = 'rain'
         break;

@@ -4,7 +4,7 @@ import * as TiIcons from 'react-icons/ti'
 import * as GiIcons from 'react-icons/gi'
 import * as WiIcons from 'react-icons/wi'
 
-export default ({selectedCity}) => {
+const Main = ({selectedCity}) => {
 
     let city = {
         name: 'Select a City',
@@ -69,3 +69,5 @@ export default ({selectedCity}) => {
         </div>
     )
 }
+
+export default Main
