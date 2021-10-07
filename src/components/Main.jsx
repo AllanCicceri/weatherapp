@@ -24,8 +24,8 @@ const Main = ({selectedCity}) => {
         const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
         const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-        city = {...selectedCity.city}
         const cityInfoToday = {...selectedCity.list[0]}
+        city = {...selectedCity.city, ...cityInfoToday}
         
         city.degress = parseInt(cityInfoToday.main.temp - 273)
         city.main = cityInfoToday.weather[0].main
